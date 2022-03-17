@@ -1,0 +1,22 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src={{this.modalData.posterUrl}} class="card-img-top" alt="...">
+                  {{modalData.title}}
+                      <p> <b>Plot: </b> {{this.modalData.plot}} </p>    
+            </div>
+            <div class="modal-footer">
+                <button (click)="closeModalHandler()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Button trigger modal -->
+<button #showModalButton id="btnShow" hidden type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch static backdrop modal
+</button>

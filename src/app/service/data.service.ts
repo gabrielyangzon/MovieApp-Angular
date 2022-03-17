@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap ,catchError ,map } from 'rxjs/operators'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { Movie } from '../models/movie';
+
+import movies from '../service/movies.json'
 
 const httpOptions = {
   headers : new HttpHeaders({
@@ -23,6 +26,8 @@ export class DataService {
 
   public BASE_URL = "https://betterimdbot.herokuapp.com/"
 
+  Movies : Movie[] = movies.movies;
+
   constructor(private http: HttpClient) { }
 
   getMovies() : Observable<any> {
@@ -39,6 +44,10 @@ export class DataService {
 
 
 
+  }
+
+  getMoviesFromJson() : Observable<Movie[]> {
+      return of(this.Movies)
   }
 
 

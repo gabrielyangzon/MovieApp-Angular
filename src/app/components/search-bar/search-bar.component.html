@@ -1,4 +1,11 @@
-
 <div class="container w-50 mt-5">
-    <input class="form-control form-control-lg" type="text" placeholder="Type movie name..." /> 
+    <input class="form-control form-control-lg" 
+    type="text" 
+    placeholder="Type movie name..." 
+    (input)="onChangeHandler()" 
+    [formControl]="searchValue" /> 
 </div>
+
+
+
+

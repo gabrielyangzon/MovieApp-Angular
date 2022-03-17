@@ -1,9 +1,16 @@
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
+<div class="card" style="width: 18rem;height: 100%;">
+    <!-- <img src={{this.data.posterUrl}} class="card-img-top" alt="..."> -->
     <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">{{this.data.title}}</h5>
+        
+        <p class="card-text">
+            <p> <b>Year: </b>{{this.data.year}}</p>
+            <p> <b>Actors: </b>{{this.data.actors}}</p>
+            <!-- <p> <b>Plot: </b> {{this.data.plot}} </p>     -->
+       
     </div>
+    <div class="card-footer"><button class="btn btn-primary" (click)="showDetails()" >See details</button></div>
 </div>
+
+<app-modal *ngIf="showModal===true" (closeModal)="closeModal()" [modalData]="data"></app-modal>
+

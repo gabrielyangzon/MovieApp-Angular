@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../service/data.service';
+import { Component, OnInit ,Input , OnChanges, SimpleChanges} from '@angular/core';
+import { Movie } from '../../models/movie';
 
 @Component({
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.css']
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent implements OnChanges {
 
-  constructor(public service : DataService) { }
+  @Input() data : Movie[]
 
-  test : number[] = [1,2,3,4,5]
+  constructor() { }
 
-  ngOnInit(): void {
-    this.service.getMovies().subscribe()
+  Movies : Movie[] = []
+
+  ngOnChanges(changes : SimpleChanges) : void {
+    this.Movies = this.data
+
   }
 
 
