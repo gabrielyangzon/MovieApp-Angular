@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild } from '@angular/core';
 import { DataService } from '../../service/data.service';
 import { Movie } from '../../models/movie'
+
+import { ModalComponent } from '../modal/modal.component'
 
 @Component({
   selector: 'app-search',
@@ -9,6 +11,7 @@ import { Movie } from '../../models/movie'
 })
 export class SearchComponent implements OnInit {
 
+ 
   constructor(public service : DataService) { }
 
   moviesSearched : Movie[] = []

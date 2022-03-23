@@ -9,8 +9,15 @@
             <!-- <p> <b>Plot: </b> {{this.data.plot}} </p>     -->
        
     </div>
-    <div class="card-footer"><button class="btn btn-primary" (click)="showDetails()" >See details</button></div>
+    <div class="card-footer"><button 
+         class="btn btn-primary" 
+         (click)="showDetails()" >See details</button></div>
 </div>
 
-<app-modal *ngIf="showModal===true" (closeModal)="closeModal()" [modalData]="data"></app-modal>
+<app-modal 
+   
+    *ngIf="showModal" 
+    (closeModal)="closeModal()" 
+    [modalData]="data">
+</app-modal>
 

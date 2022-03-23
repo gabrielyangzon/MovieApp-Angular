@@ -8,7 +8,7 @@ import { Movie } from '../../models/movie';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnChanges  {
+export class ModalComponent implements OnInit, OnChanges  {
 
   @Input() modalData : Movie
   data : Movie
@@ -20,6 +20,8 @@ export class ModalComponent implements OnChanges  {
   
   constructor() { }
 
+  
+
   ngOnChanges(changes : SimpleChanges) : void {
     this.data = this.modalData
     console.log(this.data)
@@ -29,6 +31,10 @@ export class ModalComponent implements OnChanges  {
 
   closeModalHandler() {
     this.closeModal.emit();
+  }
+
+  ngOnInit(): void {
+    
   }
 
 

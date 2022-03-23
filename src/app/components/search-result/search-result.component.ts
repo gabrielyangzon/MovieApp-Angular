@@ -1,6 +1,6 @@
 import { Component, Input, OnInit , ViewChild } from '@angular/core';
 import { Movie } from '../../models/movie'
-import { ModalComponent } from '../modal/modal.component';
+
 
 
 
@@ -11,6 +11,7 @@ import { ModalComponent } from '../modal/modal.component';
 })
 export class SearchResultComponent implements OnInit {
 
+  
   @Input() dataSource : Movie 
 
   data : Movie 
