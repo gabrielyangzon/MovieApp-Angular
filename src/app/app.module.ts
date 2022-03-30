@@ -11,8 +11,9 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { SearchComponent } from './components/search/search.component';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes} from '@angular/router'
 import { ModalComponent } from './components/modal/modal.component';
+import { StoreModule } from '@ngrx/store';
 
 
 const appRoutes : Routes = [
@@ -36,7 +37,8 @@ const appRoutes : Routes = [
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

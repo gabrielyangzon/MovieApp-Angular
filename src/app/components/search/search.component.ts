@@ -1,6 +1,6 @@
 import { Component, OnInit ,ViewChild } from '@angular/core';
 import { DataService } from '../../service/data.service';
-import { Movie } from '../../models/movie'
+import { IMdb, Movie } from '../../models/movie'
 
 import { ModalComponent } from '../modal/modal.component'
 
@@ -16,8 +16,12 @@ export class SearchComponent implements OnInit {
 
   moviesSearched : Movie[] = []
 
-  ngOnInit(): void {
+  imdbMovies : IMdb[] = []
 
+   timeoutID : any;
+
+  ngOnInit(): void {
+     
   }
 
   onSearchValueChange(queryInput:any){
@@ -26,12 +30,35 @@ export class SearchComponent implements OnInit {
     {
       this.service.getMoviesFromJson().subscribe(m => {
         
-            this.moviesSearched = m.filter(item => item.title.toLowerCase().indexOf(queryInput.toLowerCase()) >= 0)
+      this.moviesSearched = m.filter(item => item.title.toLowerCase().indexOf(queryInput.toLowerCase()) >= 0)
             
       })
-    }else{
-       this.moviesSearched = []
+    }
+    else{
+      this.moviesSearched = []
     }
   }
+
+  onSearch(queryInput:any) {
+
+    
+
+    if(queryInput !== "")
+    {
+
+      clearTimeout(this.timeoutID)
+      this.timeoutID = setTimeout(() => { 
+          this.service.getMoviesByTitle(queryInput).subscribe(movies => {
+          this.imdbMovies = movies.results
+          console.log(this.imdbMovies)
+        })
+      },1000)
+     
+        
+    }
+      
+    
+  }
+
 
 }

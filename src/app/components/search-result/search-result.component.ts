@@ -1,8 +1,5 @@
 import { Component, Input, OnInit , ViewChild } from '@angular/core';
-import { Movie } from '../../models/movie'
-
-
-
+import { Movie , IMdb } from '../../models/movie'
 
 @Component({
   selector: 'app-search-result',
@@ -12,9 +9,9 @@ import { Movie } from '../../models/movie'
 export class SearchResultComponent implements OnInit {
 
   
-  @Input() dataSource : Movie 
+  @Input() dataSource : IMdb 
 
-  data : Movie 
+  data : IMdb 
 
   showModal : boolean = false;
 

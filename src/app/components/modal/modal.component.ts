@@ -1,5 +1,5 @@
 import { Component, OnInit , ElementRef, ViewChild, Input , Output ,EventEmitter , OnChanges, SimpleChanges } from '@angular/core';
-import { Movie } from '../../models/movie';
+import { Movie , IMdb } from '../../models/movie';
 
 
 
@@ -10,8 +10,8 @@ import { Movie } from '../../models/movie';
 })
 export class ModalComponent implements OnInit, OnChanges  {
 
-  @Input() modalData : Movie
-  data : Movie
+  @Input() modalData : IMdb
+  data : IMdb
 
   @ViewChild('showModalButton' , {static: false}) showModalButton : ElementRef
 

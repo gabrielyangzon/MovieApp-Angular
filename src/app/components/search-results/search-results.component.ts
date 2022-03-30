@@ -1,5 +1,5 @@
 import { Component, OnInit ,Input , OnChanges, SimpleChanges} from '@angular/core';
-import { Movie } from '../../models/movie';
+import { Movie , IMdb } from '../../models/movie';
 
 @Component({
   selector: 'app-search-results',
@@ -8,11 +8,11 @@ import { Movie } from '../../models/movie';
 })
 export class SearchResultsComponent implements OnChanges {
 
-  @Input() data : Movie[]
+  @Input() data : IMdb[]
 
   constructor() { }
 
-  Movies : Movie[] = []
+  Movies : IMdb[] = []
 
   ngOnChanges(changes : SimpleChanges) : void {
     this.Movies = this.data
